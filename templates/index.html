@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Textutils</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: cursive;
+        }
+        h1{
+            text-align: center;
+            width: 800px;
+            margin: 10px auto;
+            padding: 5px;
+        }
+        textarea{
+            font-family: cursive;
+            margin: auto;
+            width: 712px;
+            height: 150px;
+            display: block;
+            border: 1px solid black;
+            border-radius: 0.5rem;
+            outline: none;
+            padding: 10px;
+            font-size: 20px;
+            resize: none
+        }
+        button{
+            display: block;
+            font-family: cursive;
+            width: 200px;
+            margin: 10px auto;
+            border: 1px solid black;
+            border-radius: 0.5rem;
+            font-size: 20px;
+            padding: 10px;
+            cursor: pointer;
+            outline: none;
+        }
+        button:focus, button:hover{
+            background-color: gray;
+            color: white;
+        }
+        .checkboxex{
+            width: 200px;
+            margin: 10px auto 0 auto;
+            display: block;
+        }
+        .text-success{
+            color: green;
+        }
+        #alert-box{
+            display: flex;
+            border: 1px solid black;
+            justify-content:space-around;
+            align-items: center;
+            padding-left: 10px;
+        }
+        #alert-text{
+            display: inline-block;
+        }
+        #alert-box button{
+            background-color: yellow;
+            width: 80px;
+            height: auto;
+            font-size: 15px;
+            padding: 0;
+        }
+        #alert-box button:hover{
+            color: black;
+            background-color: rgb(235, 235, 28);
+        }
+    </style>
+</head>
+<body>
+    <div id="alert-box">
+        <p id='alert-text'>I am <a href='https://www.google.com' target="_blank">Rittwick Bhabak</a>. This is my first Django Website</p>
+        <button id='alert-dismiss-btn'>Close</button>
+    </div>
+    <h1 class='borders'>Welcome to text analyzer. Enter your text below</h1>
+    <!-- add csrf_token when using post request to secure your website -->
+    <form action="/analyze" method="POST">{% csrf_token %}
+        <textarea class='textarea-border' name="text" id="" cols="30" rows="10" spellcheck="false"></textarea>
+        <div class='checkboxex'>
+
+            <input type="checkbox" name="rmvpun" id="rmvpun">
+            <label for="rmvpun" id='rmvpun-label'>Remove Punctuation</label><br>
+            <input type="checkbox" name="uppercase" id="uppercase">
+            <label for="uppercase" id='uppercase-label'>UPPERCASE</label><br>
+            <input type="checkbox" name="newlineremover" id="newlineremover">
+            <label for="newlineremover" id='newlineremover-label'>New line remover</label><br>
+            <input type="checkbox" name="slimmer" id="slimmer">
+            <label for="slimmer" id='slimmer-label'>Extra space remover</label>
+            <input type="checkbox" name="charcounter" id="charcounter">
+            <label for="charcounter" class='charcounter-label'>Character Counter</label>
+
+        </div>
+        <button type="submit">Analyze text</button>
+    </form>
+    <script>
+        document.getElementById('rmvpun').addEventListener('click',()=>{
+            if(document.getElementById('rmvpun').checked){
+                document.getElementById('rmvpun-label').className='text-success';
+            }
+            else{
+                document.getElementById('rmvpun-label').className='';
+            }
+        });
+        document.getElementById('uppercase').addEventListener('click',()=>{
+            if(document.getElementById('uppercase').checked){
+                document.getElementById('uppercase-label').className='text-success';
+            }
+            else{
+                document.getElementById('uppercase-label').className='';
+            }
+        });
+        document.getElementById('newlineremover').addEventListener('click',()=>{
+            if(document.getElementById('newlineremover').checked){
+                document.getElementById('newlineremover-label').className='text-success';
+            }
+            else{
+                document.getElementById('newlineremover-label').className='';
+            }
+        });
+        document.getElementById('slimmer').addEventListener('click',()=>{
+            if(document.getElementById('slimmer').checked){
+                document.getElementById('slimmer-label').className='text-success';
+            }
+            else{
+                document.getElementById('slimmer-label').className='';
+            }
+        });
+        document.getElementById('charcounter').addEventListener('click',()=>{
+            if(document.getElementById('charcounter').checked){
+                document.getElementById('charcounter-label').className='text-success';
+            }
+            else{
+                document.getElementById('charcounter-label').className='';
+            }
+        });
+       document.getElementById('alert-dismiss-btn').addEventListener('click',()=>{
+           document.getElementById('alert-box').style.display = 'none';
+       });
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Analyzing your text</title>
+    <style>
+        h1{
+            width: 700px;
+            font-family: cursive;
+            margin: auto;
+        }
+        #response-div{
+            border: 1px solid black;
+            width: 800px;
+            margin: 10px auto;
+            border-radius: 0.5rem;
+            height:auto;
+            padding: 10px;
+            padding-left: 20px;
+            font-family: cursive;
+        }
+        pre{
+            font-family: cursive;
+        }
+        a{
+            width: 100px;
+            border: 1px solid green;
+            margin: 10px auto;
+            padding: 10px;
+            border-radius: 0.5rem;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            font-family: cursive;
+            cursor: pointer;
+            background-color: white;
+            color: green;
+        }
+        a:hover{
+            background-color: green;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Your analyzed text - {{purpose}}</h1>
+    <div id="response-div">
+        <p><pre>{{analyzed_text}}</pre></p>
+    </div>
+    <a href='/'>Go Home</a>
+</body>
+</html>
